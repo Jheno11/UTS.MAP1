@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
                 if (task.isSuccessful) {
                     // Navigate to the ListFragment upon successful login
                     val navController = view?.let { findNavController() }
-                    navController?.navigate(R.id.listFragment3) // Change to your ListFragment ID
+                    navController?.navigate(R.id.listFragment3)
                 } else {
                     Toast.makeText(activity, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
