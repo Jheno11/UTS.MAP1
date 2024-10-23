@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class DetailFragment : Fragment() {
-    private lateinit var songTitleTextView: TextView
-    private lateinit var songArtistTextView: TextView
+
+    private lateinit var songTitle: String
+    private lateinit var songArtist: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,15 +22,17 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        songTitleTextView = view.findViewById(R.id.song_title_text_view)
-        songArtistTextView = view.findViewById(R.id.song_artist_text_view)
 
-        // Retrieve song data from arguments
-        val songTitle = arguments?.getString("song_title")
-        val songArtist = arguments?.getString("song_artist")
+        // Retrieve the data from the bundle
+        arguments?.let {
+            songTitle = it.getString("song_title") ?: "Unknown Title"
+            songArtist = it.getString("song_artist") ?: "Unknown Artist"
+        }
 
-        // Display the song details
-        songTitleTextView.text = songTitle
-        songArtistTextView.text = songArtist
+        // Use songTitle and songArtist in your UI
+        // For example, setting it to a TextView
+        view.findViewById<TextView>(R.id.song_title_text_view).text = songTitle
+        view.findViewById<TextView>(R.id.song_artist_text_view).text = songArtist
     }
 }
+

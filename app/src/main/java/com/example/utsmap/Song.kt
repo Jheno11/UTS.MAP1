@@ -1,6 +1,8 @@
 package com.example.utsmap
 
 data class Song(
-    val title: String,
-    val artist: String
+    var id: String = "",      // Firebase key
+    var title: String = "",
+    var artist: String = ""
 )
+

@@ -18,4 +18,13 @@
             android:icon="@drawable/dance"
             android:title="@string/menu_favorites" />
     </group>
+    <item
+        android:id="@+id/nav_list"
+        android:title="Song List" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:title="Favorites" />
+    <item
+        android:id="@+id/nav_dance"
+        android:title="Dance" />
 </menu>

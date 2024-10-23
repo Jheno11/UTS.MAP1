@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listFragment3"> <!-- Ensure this is the correct starting fragment -->
+    app:startDestination="@id/loginFragment"> <!-- Set the starting fragment to loginFragment -->
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.utsmap.LoginActivity"
+        android:label="Login Fragment"
+        tools:layout="@layout/activity_login" /> <!-- Assuming you have a layout for login -->
 
     <fragment
         android:id="@+id/listFragment3"
