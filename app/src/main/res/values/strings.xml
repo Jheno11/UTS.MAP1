@@ -28,7 +28,9 @@ latte glass or a coffee cup. Flavoured syrup can be added.</string>
     <string name="janjijiwa_desc">It is undeniable that Janji Jiwa outlets have spread to various corners. Janji Jiwa is a local coffee brand that is popular among students, students, workers and even families. Carrying the jargon "coffee from the heart", Janji Jiwa is committed to serving coffee with a classic taste for coffee lovers.</string>
     <string name="kopikenangan_title">KOPI KENANGAN</string>
     <string name="kopikenangan_desc">At Kopi Kenangan, their dream is to serve high quality coffee, made with the freshest local ingredients to customers across Indonesia – and the rest of the world</string>
-
+    <string name="song_title_hint">Song Title</string>
+    <string name="song_artist_hint">Artist</string>
+    <string name="add_song">Add Song</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -3,26 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listFragment3">
+    app:startDestination="@id/listFragment3"> <!-- Ensure this is the correct starting fragment -->
+
     <fragment
         android:id="@+id/listFragment3"
         android:name="com.example.utsmap.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment3_to_detailFragment2"
             app:destination="@id/detailFragment2" />
     </fragment>
+
     <fragment
         android:id="@+id/detailFragment2"
         android:name="com.example.utsmap.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+
     <fragment
         android:id="@+id/favouritesFragment2"
         android:name="com.example.utsmap.FavouritesFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
+
     <fragment
         android:id="@+id/danceFragment2"
         android:name="com.example.utsmap.DanceFragment"

@@ -1,31 +1,15 @@
 package com.example.utsmap
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DetailFragment : Fragment() {
-    private val coffeeTitle: TextView?
-        get() = view?.findViewById(R.id.coffee_title)
-    private val coffeeDesc: TextView?
-        get() = view?.findViewById(R.id.coffee_desc)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var songTitleTextView: TextView
+    private lateinit var songArtistTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,28 +21,15 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val coffeeId = arguments?.getInt(COFFEE_ID, 0) ?: 0
-        setCoffeeData(coffeeId)
-    }
+        songTitleTextView = view.findViewById(R.id.song_title_text_view)
+        songArtistTextView = view.findViewById(R.id.song_artist_text_view)
 
-    fun setCoffeeData(id: Int){
-        when(id){
-            R.id.affogato -> {
-                coffeeTitle?.text = getString(R.string.rock_title)
-                coffeeDesc?.text = getString(R.string.affogato_desc)
-            }
-            R.id.americano -> {
-                coffeeTitle?.text = getString(R.string.hiphop_title)
-                coffeeDesc?.text = getString(R.string.americano_desc)
-            }
-            R.id.latte -> {
-                coffeeTitle?.text = getString(R.string.freestyle_title)
-                coffeeDesc?.text = getString(R.string.latte_desc)
-            }
-        }
-    }
+        // Retrieve song data from arguments
+        val songTitle = arguments?.getString("song_title")
+        val songArtist = arguments?.getString("song_artist")
 
-    companion object {
-        private const val COFFEE_ID = "COFFEE_ID"
+        // Display the song details
+        songTitleTextView.text = songTitle
+        songArtistTextView.text = songArtist
     }
 }

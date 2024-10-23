@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ListFragment : Fragment() {
 
-    private lateinit var inputEditText: EditText
+    private lateinit var songTitleEditText: EditText
+    private lateinit var songArtistEditText: EditText
     private lateinit var submitButton: Button
     private lateinit var recyclerView: RecyclerView
-    private lateinit var inputAdapter: InputAdapter
-    private val inputs = mutableListOf<Pair<String, Int>>() // Mutable list to hold inputs as pairs of text and image resource ID
+    private lateinit var songAdapter: SongAdapter
+    private val songs = mutableListOf<Song>() // List to hold song data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,44 +27,41 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        return inflater.inflate(R.layout.fragment_list, container, false) // Ensure this layout has been updated for the song list
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        inputEditText = view.findViewById(R.id.input_edit_text)
+        songTitleEditText = view.findViewById(R.id.song_title_edit_text)
+        songArtistEditText = view.findViewById(R.id.song_artist_edit_text)
         submitButton = view.findViewById(R.id.submit_button)
         recyclerView = view.findViewById(R.id.recycler_view)
 
         // Set up the RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        inputAdapter = InputAdapter(inputs)
-        recyclerView.adapter = inputAdapter
+        songAdapter = SongAdapter(songs)
+        recyclerView.adapter = songAdapter
 
         // Set up click listener for the submit button
         submitButton.setOnClickListener {
-            // Get the text input by the user
-            val inputText = inputEditText.text.toString()
+            val songTitle = songTitleEditText.text.toString()
+            val songArtist = songArtistEditText.text.toString()
 
-            // Check if the input text is not empty
-            if (inputText.isNotEmpty()) {
-                // Add the input text and an image resource ID to the list
-                inputs.add(Pair(inputText, R.drawable.home)) // Replace 'your_image' with your actual drawable resource
+            if (songTitle.isNotEmpty() && songArtist.isNotEmpty()) {
+                // Add the song to the list
+                songs.add(Song(songTitle, songArtist))
 
                 // Notify the adapter that the data has changed
-                inputAdapter.notifyItemInserted(inputs.size - 1)
+                songAdapter.notifyItemInserted(songs.size - 1)
 
-                // Clear the input field
-                inputEditText.text.clear()
+                // Clear the input fields
+                songTitleEditText.text.clear()
+                songArtistEditText.text.clear()
 
                 // Scroll to the bottom of the RecyclerView
-                recyclerView.scrollToPosition(inputs.size - 1)
+                recyclerView.scrollToPosition(songs.size - 1)
             }
         }
-    }
-
-    companion object {
-        const val COFFEE_ID = "COFFEE_ID"
     }
 }
