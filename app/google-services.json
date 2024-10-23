@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "409038521259",
+    "project_id": "uts-map-lec-ef6d1",
+    "storage_bucket": "uts-map-lec-ef6d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409038521259:android:c7f0c51ee9cc733891c8ee",
+        "android_client_info": {
+          "package_name": "com.example.utsmap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtq9QFfF3YV_iK3-lFX4FSAseujxV4Y-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
