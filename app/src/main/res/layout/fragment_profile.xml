@@ -1,0 +1,89 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment"
+    android:padding="20dp"
+    android:background="@color/background_color"> <!-- Background color for the entire view -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Profile"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" /> <!-- Center the title -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="20dp"
+            android:background="?android:attr/dividerVertical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username:"
+            android:textSize="18sp"
+            android:textColor="@color/text_color" /> <!-- Text color -->
+
+        <EditText
+            android:id="@+id/username_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Enter your username"
+            android:textSize="18sp"
+            android:background="@drawable/edit_text_background"
+        android:textColor="@color/text_color"
+        android:enabled="false" /> <!-- Initially disabled -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textSize="18sp"
+            android:textColor="@color/text_color" /> <!-- Text color -->
+
+        <EditText
+            android:id="@+id/email_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Enter your email"
+            android:textSize="18sp"
+            android:background="@drawable/edit_text_background"
+        android:textColor="@color/text_color"
+        android:enabled="false" /> <!-- Initially disabled -->
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:background="@color/button_color"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:background="@color/button_color"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:visibility="gone" /> <!-- Initially hidden -->
+
+    </LinearLayout>
+</ScrollView>

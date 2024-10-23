@@ -2,34 +2,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/background_color"> <!-- Add a background color -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Dance"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
 
     <EditText
         android:id="@+id/song_title_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Song Title" />
+        android:hint="Dance Title"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_background"
+    android:textColor="@color/text_color" />
 
     <EditText
         android:id="@+id/song_artist_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Artist" />
+        android:hint="Artist"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_background"
+    android:textColor="@color/text_color"
+    android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Song" />
+        android:text="Add Dance"
+        android:textColor="@android:color/white"
+        android:background="@color/button_color"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
-    <Button
-        android:id="@+id/add_song_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Song"/>
+
 </LinearLayout>

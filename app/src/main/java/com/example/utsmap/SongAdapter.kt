@@ -10,19 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 class SongAdapter(private val songs: List<Song>) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
-    // ViewHolder class for holding the views for each item
     class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val songTitleTextView: TextView = itemView.findViewById(R.id.song_title_text_view)
         val songArtistTextView: TextView = itemView.findViewById(R.id.song_artist_text_view)
     }
 
-    // Creates a new ViewHolder when there's no existing one to recycle
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_song, parent, false)
         return SongViewHolder(view)
     }
 
-    // Binds the data to the ViewHolder
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
         val song = songs[position]
         holder.songTitleTextView.text = song.title
@@ -30,17 +27,15 @@ class SongAdapter(private val songs: List<Song>) : RecyclerView.Adapter<SongAdap
 
         // Set click listener to navigate to DetailFragment with the selected song data
         holder.itemView.setOnClickListener { view ->
-            // Create a bundle to hold the song data
+            // Create a Bundle to pass song details
             val bundle = Bundle().apply {
-                putString("song_title", song.title)
-                putString("song_artist", song.artist)
+                putString("song_title", song.title) // Pass song title
+                putString("song_artist", song.artist) // Pass song artist
             }
             view.findNavController().navigate(R.id.detailFragment2, bundle)
         }
     }
 
-
-    // Returns the total number of items in the adapter
     override fun getItemCount(): Int {
         return songs.size
     }
