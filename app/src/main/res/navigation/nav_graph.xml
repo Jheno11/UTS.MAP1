@@ -7,10 +7,15 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.utsmap.LoginActivity"
+        android:name="com.example.utsmap.LoginFragment"
         android:label="Login Fragment"
-        tools:layout="@layout/activity_login" /> <!-- Assuming you have a layout for login -->
+        tools:layout="@layout/fragment_login" />
 
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.utsmap.SignupFragment"
+        android:label="Sign Up Fragment"
+        tools:layout="@layout/fragment_signup" />
     <fragment
         android:id="@+id/listFragment3"
         android:name="com.example.utsmap.ListFragment"
