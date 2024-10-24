@@ -15,12 +15,11 @@ import com.google.firebase.firestore.ktx.toObject
 
 class ListFragment : Fragment() {
 
-    private lateinit var songTitleEditText: EditText
-    private lateinit var songArtistEditText: EditText
+    private lateinit var danceThemeEditText: EditText
     private lateinit var submitButton: Button
     private lateinit var recyclerView: RecyclerView
-    private lateinit var songAdapter: SongAdapter
-    private val songs = mutableListOf<Song>() // List to hold song data
+    private lateinit var danceThemeAdapter: DanceThemeAdapter
+    private val danceThemes = mutableListOf<DanceTheme>() // List to hold dance theme data
 
     private val firestore: FirebaseFirestore by lazy {
         FirebaseFirestore.getInstance()
@@ -40,73 +39,69 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        songTitleEditText = view.findViewById(R.id.song_title_edit_text)
-        songArtistEditText = view.findViewById(R.id.song_artist_edit_text)
+        danceThemeEditText = view.findViewById(R.id.dance_theme_edit_text)
         submitButton = view.findViewById(R.id.submit_button)
         recyclerView = view.findViewById(R.id.recycler_view)
 
         // Set up the RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        songAdapter = SongAdapter(songs)
-        recyclerView.adapter = songAdapter
+        danceThemeAdapter = DanceThemeAdapter(danceThemes)
+        recyclerView.adapter = danceThemeAdapter
 
-        // Load songs from Firestore
-        loadSongsFromFirestore()
+        // Load dance themes from Firestore
+        loadDanceThemesFromFirestore()
 
         // Set up click listener for the submit button
         submitButton.setOnClickListener {
-            val songTitle = songTitleEditText.text.toString()
-            val songArtist = songArtistEditText.text.toString()
+            val danceTheme = danceThemeEditText.text.toString()
 
-            if (songTitle.isNotEmpty() && songArtist.isNotEmpty()) {
-                // Create a new song object
-                val newSong = Song(songTitle, songArtist)
+            if (danceTheme.isNotEmpty()) {
+                // Create a new dance theme object
+                val newDanceTheme = DanceTheme(danceTheme)
 
-                // Store the song in Firestore
-                storeSongInFirestore(newSong)
+                // Store the dance theme in Firestore
+                storeDanceThemeInFirestore(newDanceTheme)
 
-                // Clear the input fields
-                songTitleEditText.text.clear()
-                songArtistEditText.text.clear()
+                // Clear the input field
+                danceThemeEditText.text.clear()
             }
         }
     }
 
-    private fun storeSongInFirestore(song: Song) {
-        // Create a new document with a unique ID
-        firestore.collection("songs")
-            .add(song)
+    private fun storeDanceThemeInFirestore(danceTheme: DanceTheme) {
+        firestore.collection("danceThemes")
+            .add(danceTheme)
             .addOnSuccessListener {
-                // Song stored successfully
-                println("Song added with ID: ${it.id}")
+                // Dance theme stored successfully
+                println("Dance theme added with ID: ${it.id}")
 
-                // Add the song to the list and notify the adapter
-                songs.add(song)
-                songAdapter.notifyItemInserted(songs.size - 1)
+                // Add the dance theme to the list and notify the adapter
+                danceThemes.add(danceTheme)
+                danceThemeAdapter.notifyItemInserted(danceThemes.size - 1)
 
                 // Scroll to the bottom of the RecyclerView
-                recyclerView.scrollToPosition(songs.size - 1)
+                recyclerView.scrollToPosition(danceThemes.size - 1)
             }
             .addOnFailureListener { e ->
                 // Handle the error
-                println("Error adding song: ${e.message}")
+                println("Error adding dance theme: ${e.message}")
             }
     }
 
-    private fun loadSongsFromFirestore() {
-        firestore.collection("songs")
+    private fun loadDanceThemesFromFirestore() {
+        firestore.collection("danceThemes")
             .get()
             .addOnSuccessListener { result ->
-                songs.clear() // Clear existing songs before loading
+                danceThemes.clear() // Clear existing dance themes before loading
                 for (document in result) {
-                    val song = document.toObject<Song>()
-                    songs.add(song)
+                    val danceTheme = document.toObject<DanceTheme>()
+                    danceThemes.add(danceTheme)
                 }
-                songAdapter.notifyDataSetChanged() // Notify adapter of data changes
+                danceThemeAdapter.notifyDataSetChanged() // Notify adapter of data changes
             }
             .addOnFailureListener { e ->
                 // Handle the error
-                println("Error fetching songs: ${e.message}")
+                println("Error fetching dance themes: ${e.message}")
             }
     }
 }

@@ -11,16 +11,46 @@
         android:text="Back" />
 
     <TextView
-        android:id="@+id/song_title_text_view"
+        android:id="@+id/dance_theme_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/song_artist_text_view"
+    <EditText
+        android:id="@+id/title_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="8dp" />
+        android:hint="Dance Title"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/text_color" />
+
+    <EditText
+        android:id="@+id/artist_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Artist"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/text_color" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Dance Detail"
+        android:textColor="@android:color/white"
+        android:background="@color/button_color"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium" />
+
+    <TextView
+        android:id="@+id/added_dance_detail_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

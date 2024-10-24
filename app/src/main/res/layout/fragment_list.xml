@@ -8,47 +8,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Dance"
+        android:text="Add Dance Theme"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:paddingBottom="16dp" />
 
     <EditText
-        android:id="@+id/song_title_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Dance Title"
-        android:padding="10dp"
-        android:background="@drawable/edit_text_background"
+        android:id="@+id/dance_theme_edit_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Dance Theme"
+    android:padding="10dp"
+    android:background="@drawable/edit_text_background"
     android:textColor="@color/text_color" />
-
-    <EditText
-        android:id="@+id/song_artist_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Artist"
-        android:padding="10dp"
-        android:background="@drawable/edit_text_background"
-    android:textColor="@color/text_color"
-    android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Dance"
-        android:textColor="@android:color/white"
-        android:background="@color/button_color"
-        android:layout_marginTop="16dp"
-        android:padding="12dp"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif-medium" />
+        android:text="Add Dance Theme"
+    android:textColor="@android:color/white"
+    android:background="@color/button_color"
+    android:layout_marginTop="16dp"
+    android:padding="12dp"
+    android:textSize="16sp"
+    android:fontFamily="sans-serif-medium" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
-
 </LinearLayout>
