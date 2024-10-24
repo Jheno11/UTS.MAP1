@@ -4,57 +4,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/background_color">
+
     <com.google.android.material.tabs.TabLayout
-        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed"/>
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:background="@color/background_color"
+        app:tabTextColor="@color/tab_text_color"
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabIndicatorColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.viewpager2.widget.ViewPager2
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/view_pager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textColor="@color/item_text_color"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/dividerVertical"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:id="@+id/affogato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/starbucks_title"
+                android:textColor="@color/item_text_color" />
+
+            <TextView
+                android:id="@+id/americano"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/janjijiwa_title"
+                android:textColor="@color/item_text_color" />
+
+            <TextView
+                android:id="@+id/latte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/kopikenangan_title"
+                android:textColor="@color/item_text_color" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent"-->
-    <!--    tools:context=".DanceFragment"-->
-    <!--    android:padding="20dp">-->
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:orientation="vertical">-->
-    <!--        <TextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:textSize="30sp"-->
-    <!--            android:text="@string/Dance_list"/>-->
-    <!--        <View-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="1dp"-->
-    <!--            android:layout_marginVertical="20dp"-->
-    <!--            android:background="?android:attr/dividerVertical" />-->
-    <!--        <TextView-->
-    <!--            android:id="@+id/affogato"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:padding="10dp"-->
-    <!--            android:text="@string/starbucks_title"/>-->
-    <!--        <TextView-->
-    <!--            android:id="@+id/americano"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:padding="10dp"-->
-    <!--            android:text="@string/janjijiwa_title"/>-->
-    <!--        <TextView-->
-    <!--            android:id="@+id/latte"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:padding="10dp"-->
-    <!--            android:text="@string/kopikenangan_title"/>-->
-    <!--    </LinearLayout>-->
-    <!--</ScrollView>-->

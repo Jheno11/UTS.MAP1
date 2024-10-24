@@ -52,6 +52,7 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.recyclerview)
+    implementation ("com.google.android.material:material:1.9.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

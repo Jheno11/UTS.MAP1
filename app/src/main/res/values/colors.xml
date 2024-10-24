@@ -4,8 +4,12 @@
     <color name="gray">#939393</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_brown">#C2663C</color>
-    <color name="background_color">#F5F5F5</color> <!-- Light gray for the background -->
+    <color name="background_color">#E0F7FA</color> <!-- Light gray for the background -->
     <color name="text_color">#333333</color> <!-- Dark gray for text -->
-    <color name="button_color">#6200EE</color> <!-- Custom color for button -->
+    <color name="button_color">#0a45a3</color> <!-- Custom color for button -->
     <color name="colorAccent">#FF4081</color> <!-- Accent color -->
+    <color name="colorStart">#FFB74D</color> <!-- Light Orange -->
+    <color name="colorEnd">#FF9800</color> <!-- Dark Orange -->
+    <color name="tab_text_color">#0b8eb3</color>
+    <color name="item_text_color">#000000</color>
 </resources>
